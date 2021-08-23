@@ -3,6 +3,7 @@ name: push
 on: [push]
 
 jobs:
+  working-directory: scripts
   checkov:
     runs-on: ubuntu-latest
     name: Checkov
@@ -13,7 +14,6 @@ jobs:
       - name: Run Checkov action
         id: checkov
         uses: mtcolman/checkov-action@master
-        working-directory: scripts
         with:
           quiet: false
           soft_fail: false
