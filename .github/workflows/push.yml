@@ -3,9 +3,11 @@ name: push
 on: [push]
 
 jobs:
-  working-directory: scripts
   checkov:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: scripts
     name: Checkov
     steps:
       - name: Checkout repo
