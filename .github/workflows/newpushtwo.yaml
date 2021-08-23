@@ -9,12 +9,6 @@ jobs:
       image: pandoraholladay/checkov-permissions:1
       options: --user 0:0
     steps:
-      - run: |
-          echo This job does specify a container.
-          /entrypoint.sh
-        name: Run in container
-
-    steps:
       - name: Checkout repo
         uses: actions/checkout@master
 
