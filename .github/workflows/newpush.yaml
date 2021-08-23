@@ -5,16 +5,11 @@ on: [push]
 jobs:
   checkov:
     runs-on: ubuntu-latest
-    name: Checkov
+    container:
+      image: pandoraholladay/checkov-permissions:1
+      options: --user 0:0
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@master
-
-      - name: Run Checkov action
-        id: checkov
-        uses: mtcolman/checkov-action@master
-        with:
-          quiet: false
-          soft_fail: false
-          framework: terraform
-          output_format: cli
+      - run: |
+          echo This job does specify a container.
+          echo It runs in the container instead of the VM.
+        name: Run in container
