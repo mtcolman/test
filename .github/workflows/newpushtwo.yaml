@@ -1,0 +1,27 @@
+name: newpushtwo
+
+on: [push]
+
+jobs:
+  checkov:
+    runs-on: ubuntu-latest
+    container:
+      image: pandoraholladay/checkov-permissions:1
+      options: --user 0:0
+    steps:
+      - run: |
+          echo This job does specify a container.
+          /entrypoint.sh
+        name: Run in container
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@master
+
+      - name: Run Checkov action
+        uses: mtcolman/checkov-action@master
+        with:
+          quiet: false
+          soft_fail: false
+          framework: terraform
+          output_format: cli
