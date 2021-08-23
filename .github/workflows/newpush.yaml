@@ -11,5 +11,5 @@ jobs:
     steps:
       - run: |
           echo This job does specify a container.
-          echo It runs in the container instead of the VM.
+          /entrypoint.sh
         name: Run in container
