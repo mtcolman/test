@@ -2,12 +2,13 @@ name: push
 
 on: [push]
 
+defaults:
+  run:
+    working-directory: /scripts
+
 jobs:
   checkov:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: scripts
     name: Checkov
     steps:
       - name: Checkout repo
