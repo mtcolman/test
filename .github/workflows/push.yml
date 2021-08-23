@@ -18,4 +18,3 @@ jobs:
           soft_fail: false
           framework: terraform
           output_format: cli
-          options: '--user 0:0'
